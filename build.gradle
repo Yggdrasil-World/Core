@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'de.overcraft.core'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'com.github.Minestom:Minestom:954e8b3915'
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+}
+
+test {
+    useJUnitPlatform()
+}
