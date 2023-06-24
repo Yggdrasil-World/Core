@@ -15,6 +15,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'com.github.Minestom:Minestom:954e8b3915'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+    implementation 'org.reflections:reflections:0.10.2'
 }
 
 test {
