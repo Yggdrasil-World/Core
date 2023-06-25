@@ -26,7 +26,7 @@ public class GuildCommand extends Command {
 
             addSyntax(((sender, context) -> {
                 EntityFinder entity = context.get(player);
-                sender.sendMessage(entity.findFirstPlayer(sender).asPlayer().getName();
+                sender.sendMessage(entity.findFirstPlayer(sender).asPlayer().getName());
             }), player);
         }
     }
