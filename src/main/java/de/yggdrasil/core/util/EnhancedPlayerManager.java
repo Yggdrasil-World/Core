@@ -1,5 +1,6 @@
 package de.yggdrasil.core.util;
 
+import de.yggdrasil.core.player.EnhancedPlayer;
 import net.minestom.server.entity.Player;
 
 import java.util.HashMap;
