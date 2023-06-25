@@ -5,6 +5,19 @@ plugins {
 group 'de.overcraft.core'
 version '1.0-SNAPSHOT'
 
+jar {
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes 'Main-Class': 'de.yggdrasil.core.Main'
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
@@ -15,6 +28,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'com.github.Minestom:Minestom:954e8b3915'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+    implementation 'org.reflections:reflections:0.10.2'
 }
 
 test {
