@@ -32,14 +32,9 @@ public class Main {
         });
         // Start the server on port 25565
         minecraftServer.start("0.0.0.0", 25565);
-
-        // STC
         registerCommands();
     }
 
-    /**
-     * This is a temporary function to register all commands Annotated with {@link de.yggdrasil.core.command.RegisterCommand}
-     */
     private static void registerCommands() {
         CommandRegisterer.registerCommands(CommandRegisterer.findCommands().stream().map(commandClass -> {
             try {

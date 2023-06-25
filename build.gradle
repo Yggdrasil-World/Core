@@ -5,6 +5,19 @@ plugins {
 group 'de.overcraft.core'
 version '1.0-SNAPSHOT'
 
+jar {
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes 'Main-Class': 'de.yggdrasil.core.Main'
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
