@@ -1,6 +1,9 @@
 package de.yggdrasil.core.social.guild;
 
 import de.yggdrasil.core.character.Character;
+import de.yggdrasil.core.exceptions.StringRegexException;
+import de.yggdrasil.core.exceptions.guild.NameNotAvailableException;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,16 +22,30 @@ public class GuildManager {
     }
 
     public boolean guildNameExists(String name) {
+        // Check ever guild if it matches the given string
         for (Map.Entry<UUID, Guild> entry : map.entrySet()) {
             if(entry.getValue().getName().equals(name))
                 return true;
         }
+        // TODO: Check in Database
         return false;
     }
 
-    public Guild createGuild(String name, Character creator) {
+    /**
+     * @param name The name of the Guild
+     * @param creator The character who is trying to invoke a guild creation
+     * @return Null if guild name already exists, else returns the created Guild
+     */
+    public @Nullable Guild createGuild(String name, Character creator) throws StringRegexException, NameNotAvailableException {
+        if(!name.matches(Guild.GUILD_NAME_RESTRICTION_REGEX)) {
+            throw new StringRegexException("Guild name does not match the required regex", Guild.GUILD_NAME_RESTRICTION_REGEX, name);
+        }
+        if(guildNameExists(name)) {
+            throw new NameNotAvailableException("Guild name is already taken", name);
+        }
         // Has enough money
-        return new Guild(name, creator);
+        Guild guild = new Guild(name, creator);
+        return map.put(guild.getUuid(), guild);
     }
 
 }

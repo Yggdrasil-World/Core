@@ -2,8 +2,13 @@ package de.yggdrasil.core.command.commands.guild;
 
 import de.yggdrasil.core.command.RegisterCommand;
 import net.minestom.server.command.builder.Command;
+import net.minestom.server.command.builder.arguments.Argument;
 import net.minestom.server.command.builder.arguments.ArgumentString;
 import net.minestom.server.command.builder.arguments.ArgumentType;
+import net.minestom.server.command.builder.arguments.ArgumentWord;
+import net.minestom.server.command.builder.arguments.minecraft.ArgumentComponent;
+import net.minestom.server.command.builder.arguments.minecraft.ArgumentNbtTag;
+import net.minestom.server.command.builder.arguments.minecraft.ArgumentResource;
 
 
 @RegisterCommand
@@ -18,13 +23,13 @@ public class GuildCommand extends Command {
 
         public Create() {
             super("create");
-            ArgumentGuildName guildName = new ArgumentGuildName("guild-name");
+            ArgumentWord guildName = new ArgumentWord("guild-name");
             guildName.setCallback((sender, exception) -> {
                 sender.sendMessage("Exception: " + exception.getMessage() + " Error code: " + exception.getErrorCode());
             });
-
             addSyntax(((sender, context) -> {
-                sender.sendMessage("test");
+                
+                sender.sendMessage("created guild: " + context.get(guildName));
             }),guildName);
         }
     }

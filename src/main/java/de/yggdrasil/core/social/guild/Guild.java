@@ -12,13 +12,14 @@ import java.util.UUID;
  */
 public class Guild {
 
+    public static final String GUILD_NAME_RESTRICTION_REGEX = "^[A-Za-z._!()=/0-9-]+$";
     private UUID uuid;
     private String name;
     private Character owner; // TODO: Change to player interface
     private Character[] members; // TODO: Change to player interface
     private GuildRank[] guildRanks;
 
-    public Guild(String name, Character creator) {
+    protected Guild(String name, Character creator) {
         this.owner = creator;
         this.name = name;
         this.uuid = UUID.randomUUID();
