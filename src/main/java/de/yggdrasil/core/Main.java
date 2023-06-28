@@ -34,6 +34,7 @@ public class Main {
         // Start the server on port 25565
         minecraftServer.start("0.0.0.0", 25565);
         registerCommands();
+
     }
 
     private static void registerCommands() {
