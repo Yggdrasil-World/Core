@@ -1,5 +1,6 @@
 package de.yggdrasil.core.command.commands.guild;
 
+import de.yggdrasil.core.Overcraft;
 import de.yggdrasil.core.command.RegisterCommand;
 import net.minestom.server.command.builder.Command;
 import net.minestom.server.command.builder.arguments.Argument;
@@ -28,7 +29,7 @@ public class GuildCommand extends Command {
                 sender.sendMessage("Exception: " + exception.getMessage() + " Error code: " + exception.getErrorCode());
             });
             addSyntax(((sender, context) -> {
-                
+                //Overcraft.get().getGuildManager().createGuild(context.get(guildName));
                 sender.sendMessage("created guild: " + context.get(guildName));
             }),guildName);
         }
