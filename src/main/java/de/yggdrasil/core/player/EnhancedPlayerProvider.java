@@ -1,4 +1,4 @@
-package de.yggdrasil.core.util;
+package de.yggdrasil.core.player;
 
 import net.minestom.server.entity.Player;
 import net.minestom.server.network.PlayerProvider;
@@ -11,7 +11,6 @@ public class EnhancedPlayerProvider implements PlayerProvider {
     @Override
     public @NotNull Player createPlayer(@NotNull UUID uuid, @NotNull String username, @NotNull PlayerConnection connection) {
         // Load Player Information
-
-        return null;
+        return new EnhancedPlayer(uuid, username, connection);
     }
 }
