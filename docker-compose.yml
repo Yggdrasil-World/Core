@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  postgres:
+    container_name: database
+    image: "postgres"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PWD}
+  server:
+    container_name: gameserver
+    build:
+      dockerfile: ./Dockerfile
+    ports:
+      - "25565:25565"
+    depends_on:
+      - postgres
