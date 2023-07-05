@@ -1,6 +1,6 @@
 .env
 .gradle/
-.idea
+/.idea/
 ./build/
 ./extensions/
 
