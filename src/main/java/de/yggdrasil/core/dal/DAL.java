@@ -1,21 +1,24 @@
 package de.yggdrasil.core.dal;
 
+import de.yggdrasil.core.dal.adapter.Adapter;
+
 import java.util.HashMap;
 
 public final class DAL {
 
     private final static DAL instance = new DAL();
+    private final DALPipeline pipeline = new DALPipeline();
 
     private final HashMap<String, Byte[]> data = new HashMap<>();
 
     private DAL (){}
 
-    public void saveData(String identifier, Byte[] data){
-
+    public <T> void saveData(String identifier, Class<Adapter> adapterClass, T object){
+        this.pipeline.saveData(identifier, adapterClass, object);
     }
 
-    public Byte[] readData(String identifier){
-        return this.data.get(identifier);
+    public <T> T readData(String identifier, Class<Adapter> adapterClass){
+        return this.pipeline.loadData(identifier, adapterClass);
     }
 
     public static DAL get(){
