@@ -13,11 +13,11 @@ public final class DAL {
 
     private DAL (){}
 
-    public <T> void saveData(String identifier, Class<Adapter> adapterClass, T object){
+    public <T> void saveData(String identifier, Class<? extends Adapter<T>> adapterClass, T object){
         this.pipeline.saveData(identifier, adapterClass, object);
     }
 
-    public <T> T readData(String identifier, Class<Adapter> adapterClass){
+    public <T> T readData(String identifier, Class<? extends Adapter<T>> adapterClass){
         return this.pipeline.loadData(identifier, adapterClass);
     }
 

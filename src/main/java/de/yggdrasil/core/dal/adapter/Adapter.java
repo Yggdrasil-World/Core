@@ -1,6 +1,6 @@
 package de.yggdrasil.core.dal.adapter;
 
-public interface Adapter {
+public interface Adapter<T> {
 
     public <T> byte[] convertToData(T object);
 

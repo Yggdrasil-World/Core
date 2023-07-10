@@ -13,16 +13,16 @@ public class DALPipeline {
 
     }
 
-    protected <T> void saveData(String identifier, Class<Adapter> adapterClass, T object){
+    protected <T> void saveData(String identifier, Class<? extends Adapter<T>> adapterClass, T object){
         byte[] data = this.libary.getAdapter(
                 adapterClass.getAnnotation(DALAdapter.class).identifier())
                 .convertToData(object);
         this.dataManager.saveData(identifier, data);
     }
 
-    protected <T> T loadData(String identifier, Class<Adapter> adapterClass){
+    protected <T> T loadData(String identifier, Class<? extends Adapter<T>> adapterClass){
         byte[] data = this.dataManager.getData(identifier);
-        return this.libary.getAdapter(
+        return (T) this.libary.getAdapter(
                 adapterClass.getAnnotation(DALAdapter.class).identifier())
                 .createFromData(data);
     }
