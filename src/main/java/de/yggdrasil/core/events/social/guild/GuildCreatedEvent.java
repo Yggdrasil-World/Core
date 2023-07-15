@@ -18,10 +18,10 @@ public class GuildCreatedEvent extends GuildEvent {
      */
     @Override
     public Guild getGuild() {
-        return guild;
+        return this.guild;
     }
 
     public Date getTimestamp() {
-        return timestamp;
+        return this.timestamp;
     }
 }

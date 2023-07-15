@@ -1,5 +1,6 @@
 package de.yggdrasil.core.exceptions.guild;
 
+
 public class NameNotAvailableException extends Exception{
     protected String name;
     public NameNotAvailableException(String message, String name) {

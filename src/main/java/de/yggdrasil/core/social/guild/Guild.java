@@ -50,22 +50,22 @@ public class Guild {
     }
 
     public UUID getUuid() {
-        return uuid;
+        return this.uuid;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public GuildMember getOwner() {
-        return owner;
+        return this.owner;
     }
 
     public GuildMember[] getMembers() {
-        return members;
+        return this.members;
     }
 
     public GuildRank[] getGuildRanks() {
-        return guildRanks;
+        return this.guildRanks;
     }
 }

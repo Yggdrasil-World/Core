@@ -50,7 +50,7 @@ public class GuildManager {
      */
     public @Nullable Guild createGuild(String name, GuildMember creator) throws StringRegexException, NameNotAvailableException {
         if(!name.matches(Guild.GUILD_NAME_RESTRICTION_REGEX)) {
-            throw new StringRegexException("Guild name does not match the required regex", Guild.GUILD_NAME_RESTRICTION_REGEX, name);
+            throw new StringRegexException(Guild.GUILD_NAME_RESTRICTION_REGEX, name);
         }
         if(guildNameExists(name)) {
             throw new NameNotAvailableException("Guild name is already taken", name);
