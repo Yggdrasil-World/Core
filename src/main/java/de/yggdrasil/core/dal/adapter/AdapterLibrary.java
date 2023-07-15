@@ -5,7 +5,7 @@ import de.yggdrasil.core.exceptions.IdentifierAlreadyExistsException;
 import java.util.HashMap;
 import java.util.Set;
 
-public class AdapterLibary {
+public class AdapterLibrary {
 
     private final HashMap<String, Adapter> adapters = new HashMap<>();
 

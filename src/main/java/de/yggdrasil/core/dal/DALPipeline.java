@@ -1,12 +1,12 @@
 package de.yggdrasil.core.dal;
 
 import de.yggdrasil.core.dal.adapter.Adapter;
-import de.yggdrasil.core.dal.adapter.AdapterLibary;
+import de.yggdrasil.core.dal.adapter.AdapterLibrary;
 import de.yggdrasil.core.dal.adapter.DALAdapter;
 
 public class DALPipeline {
 
-    private final AdapterLibary libary = new AdapterLibary();
+    private final AdapterLibrary libary = new AdapterLibrary();
     private final DataManager dataManager = new DataManager();
 
     protected DALPipeline(){
