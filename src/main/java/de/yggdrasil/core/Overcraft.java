@@ -8,7 +8,7 @@ import de.yggdrasil.core.social.guild.GuildManager;
 public final class Overcraft {
     private static final Overcraft overcraft = new Overcraft();
 
-    private GuildManager guildManager;
+    private final GuildManager guildManager;
 
     private Overcraft() {
         guildManager = new GuildManager();
