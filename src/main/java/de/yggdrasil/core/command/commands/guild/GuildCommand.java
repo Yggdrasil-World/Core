@@ -2,6 +2,7 @@ package de.yggdrasil.core.command.commands.guild;
 
 import de.yggdrasil.core.Overcraft;
 import de.yggdrasil.core.command.RegisterCommand;
+import de.yggdrasil.core.strings.GuildCommandMessages;
 import net.minestom.server.command.builder.Command;
 import net.minestom.server.command.builder.arguments.Argument;
 import net.minestom.server.command.builder.arguments.ArgumentString;
@@ -26,7 +27,7 @@ public class GuildCommand extends Command {
             super("create");
             ArgumentWord guildName = new ArgumentWord("guild-name");
             guildName.setCallback((sender, exception) -> {
-                sender.sendMessage("Exception: " + exception.getMessage() + " Error code: " + exception.getErrorCode());
+                sender.sendMessage(GuildCommandMessages.NAME_EXCEPTION.formatted(exception.getMessage(),exception.getErrorCode()));
             });
             addSyntax(((sender, context) -> {
                 //Overcraft.get().getGuildManager().createGuild(context.get(guildName));
