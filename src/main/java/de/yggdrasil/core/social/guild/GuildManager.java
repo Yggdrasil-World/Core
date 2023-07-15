@@ -21,6 +21,10 @@ public class GuildManager {
         return this.map.get(uuid);
     }
 
+    /**
+     * @param name the name which wille be checked for existence
+     * @return if the guild name already exists
+     */
     public boolean guildNameExists(String name) {
         // Check ever guild if it matches the given string
         for (Map.Entry<UUID, Guild> entry : map.entrySet()) {
@@ -30,13 +34,21 @@ public class GuildManager {
         // TODO: Check in Database
         return false;
     }
-
     /**
      * @param name The name of the Guild
      * @param creator The character who is trying to invoke a guild creation
      * @return Null if guild name already exists, else returns the created Guild
      */
     public @Nullable Guild createGuild(String name, Character creator) throws StringRegexException, NameNotAvailableException {
+        return createGuild(name, GuildMember.NewMember(creator, GuildRank.Empty()));
+    }
+
+    /**
+     * @param name The name of the Guild
+     * @param creator The character who is trying to invoke a guild creation
+     * @return Null if guild name already exists, else returns the created Guild
+     */
+    public @Nullable Guild createGuild(String name, GuildMember creator) throws StringRegexException, NameNotAvailableException {
         if(!name.matches(Guild.GUILD_NAME_RESTRICTION_REGEX)) {
             throw new StringRegexException("Guild name does not match the required regex", Guild.GUILD_NAME_RESTRICTION_REGEX, name);
         }
