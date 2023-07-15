@@ -31,7 +31,7 @@ public class GuildCommand extends Command {
             });
             addSyntax(((sender, context) -> {
                 //Overcraft.get().getGuildManager().createGuild(context.get(guildName));
-                sender.sendMessage("created guild: " + context.get(guildName));
+                sender.sendMessage(GuildCommandMessages.GUILD_CREATED.formatted(context.get(guildName)));
             }),guildName);
         }
     }
