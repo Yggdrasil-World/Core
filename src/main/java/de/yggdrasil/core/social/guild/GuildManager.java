@@ -1,6 +1,10 @@
 package de.yggdrasil.core.social.guild;
 
+<<<<<<< HEAD
 import de.yggdrasil.core.character.Character;
+=======
+
+>>>>>>> parent of f0a3f1e... remove duplicate classes
 import de.yggdrasil.core.exceptions.StringRegexException;
 import de.yggdrasil.core.exceptions.guild.NameNotAvailableException;
 import org.jetbrains.annotations.Nullable;

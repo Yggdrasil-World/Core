@@ -3,6 +3,7 @@ package de.yggdrasil.core;
 import de.yggdrasil.core.command.CommandRegisterer;
 import de.yggdrasil.core.dal.DAL;
 import de.yggdrasil.core.player.EnhancedPlayer;
+import de.yggdrasil.core.player.EnhancedPlayerProvider;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
@@ -32,8 +33,10 @@ public class Main {
             event.setSpawningInstance(instanceContainer);
             player.setRespawnPoint(new Pos(0, 42, 0));
         });
+        MinecraftServer.getConnectionManager().setPlayerProvider(new EnhancedPlayerProvider());
         // Start the server on port 25565
         minecraftServer.start("0.0.0.0", 25565);
+
         registerCommands();
     }
 
