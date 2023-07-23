@@ -1,10 +1,12 @@
 package de.yggdrasil.core.dal;
 
+import java.util.HashMap;
+
 public class DataManager {
 
-    protected byte[] getData(String identifier){
+    protected DALEntry getData(String identifier){
         //TODO
-        return new byte[0];
+        return new DALEntry(null,null);
     }
 
     protected void saveData(String identifier, byte[] data){

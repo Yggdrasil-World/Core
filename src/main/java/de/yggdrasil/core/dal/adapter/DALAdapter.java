@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DALAdapter {
 
-    int version();
-    String identifier();
+    int version() default 1;
+    Class adapterForClass();
 
 }
