@@ -7,14 +7,22 @@ import net.minestom.server.entity.Player;
 @DALAdapter(version = 1, identifier = "player")
 public class PlayerAdapter implements Adapter<Player> {
 
+
+    /**
+     * @param object
+     * @return
+     */
     @Override
-    public <T> byte[] convertToData(T object) {
+    public byte[] convertToData(Player object) {
         return new byte[0];
     }
 
+    /**
+     * @param data
+     * @return
+     */
     @Override
-    public <T> T createFromData(byte[] data) {
+    public Player createFromData(byte[] data) {
         return null;
     }
-
 }
