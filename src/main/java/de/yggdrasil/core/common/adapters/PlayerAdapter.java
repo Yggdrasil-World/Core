@@ -4,7 +4,7 @@ import de.yggdrasil.core.dal.adapter.Adapter;
 import de.yggdrasil.core.dal.adapter.DALAdapter;
 import net.minestom.server.entity.Player;
 
-@DALAdapter(version = 1, identifier = "player")
+@DALAdapter(adapterForClass = Player.class)
 public class PlayerAdapter implements Adapter<Player> {
 
 
