@@ -13,18 +13,13 @@ public class DALPipeline {
     }
 
     protected <T> void saveData(String identifier, T object) {
-        byte[] data = this.libary.getAdapterForClass(object.getClass())
-                .stream()
-                .findFirst()
-                .get()
-                .convertToData(object);
+        byte[] data = this.libary.getAdapterForClass(object.getClass()).convertToData(object);
         this.dataManager.saveData(identifier, data);
     }
 
     protected <T> T loadData(String identifier) {
         DALEntry entry = this.dataManager.getData(identifier);
-        return (T) this.libary.getAdapterForClass(entry.objectClass()).stream().findFirst().get()
-                .createFromData(entry.data());
+        return (T) this.libary.getAdapterForClass(entry.objectClass()).createFromData(entry.data());
     }
 
 }
