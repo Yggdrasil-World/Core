@@ -9,8 +9,6 @@ public final class DAL {
     private final static DAL instance = new DAL();
     private final DALPipeline pipeline = new DALPipeline();
 
-    private final HashMap<String, Byte[]> data = new HashMap<>();
-
     private DAL (){}
 
     public <T> void saveData(String identifier, T object){
