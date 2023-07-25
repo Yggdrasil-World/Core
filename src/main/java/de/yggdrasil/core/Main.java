@@ -5,9 +5,6 @@ import de.yggdrasil.core.dal.DAL;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
-import net.minestom.server.entity.fakeplayer.FakePlayer;
-import net.minestom.server.entity.fakeplayer.FakePlayerController;
-import net.minestom.server.entity.fakeplayer.FakePlayerOption;
 import net.minestom.server.event.GlobalEventHandler;
 import net.minestom.server.event.player.PlayerLoginEvent;
 import net.minestom.server.instance.InstanceContainer;
@@ -15,7 +12,6 @@ import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.block.Block;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class Main {
