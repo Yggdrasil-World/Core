@@ -2,7 +2,6 @@ package de.yggdrasil.core;
 
 import de.yggdrasil.core.command.CommandRegisterer;
 import de.yggdrasil.core.dal.DAL;
-import de.yggdrasil.core.player.EnhancedPlayer;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;

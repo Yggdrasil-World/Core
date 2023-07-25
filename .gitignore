@@ -1,6 +1,7 @@
-.env
 .gradle/
 /.idea/
 ./build/
 ./extensions/
-
+*.env
+*.class
+*.jar
