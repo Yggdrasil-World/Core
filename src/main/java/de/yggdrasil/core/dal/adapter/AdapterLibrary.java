@@ -1,7 +1,8 @@
 package de.yggdrasil.core.dal.adapter;
 
+import de.yggdrasil.core.exceptions.dal.DuplicateAdapterForClassException;
+
 import java.util.HashMap;
-import java.util.Set;
 
 public class AdapterLibrary {
 
@@ -12,16 +13,25 @@ public class AdapterLibrary {
     }
 
     private void setup(){
-        Set<Class<Adapter>> adapterClasses = AdapterCollector.findAdapters();
-        for (Class<Adapter> adapterClass:
-             adapterClasses) {
-            try {
-                Class adapterType = adapterClass.getAnnotation(DALAdapter.class).adapterForClass();
-                if (this.adapters.containsKey(adapterType)) continue;
-                this.adapters.put(adapterType, adapterClass.newInstance());
-            } catch (InstantiationException | IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
+        this.addAdapterCollection(new DefaultAdapterCollector());
+    }
+
+    public void addAdapterCollection(AdapterCollector collector){
+        for (Class<? extends Adapter> adapterClass:
+             collector.collectAdapters()) {
+            this.addAdapter(adapterClass);
+        }
+        System.out.println(adapters.size());
+    }
+
+    private void addAdapter(Class<? extends Adapter> adapterClass){
+        try {
+            Adapter adapterInstance = adapterClass.newInstance();
+            Class adapterType = adapterInstance.getClassOfAdapter();
+            if (this.adapters.containsKey(adapterType)) throw new DuplicateAdapterForClassException();
+            this.adapters.put(adapterType, adapterInstance);
+        } catch (InstantiationException | IllegalAccessException | DuplicateAdapterForClassException e) {
+            e.printStackTrace();
         }
     }
 

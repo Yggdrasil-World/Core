@@ -1,8 +1,8 @@
-package de.yggdrasil.core.dal.adapter;
+package de.yggdrasil.core.dal.pipeline;
 
 import java.lang.annotation.*;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-public @interface DALAdapter { }
+public @interface DALPipeline { }
