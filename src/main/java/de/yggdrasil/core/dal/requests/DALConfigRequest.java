@@ -1,6 +1,7 @@
 package de.yggdrasil.core.dal.requests;
 
 import de.yggdrasil.core.dal.data.DataSource;
+import de.yggdrasil.core.dal.data.datasources.PostgresDB;
 
 public class DALConfigRequest implements DALReadRequest{
 
@@ -16,9 +17,8 @@ public class DALConfigRequest implements DALReadRequest{
     }
 
     @Override
-    public DataSource getDatasource() {
-        //TODO
-        return null;
+    public Class<? extends DataSource> getDatasource() {
+        return PostgresDB.class;
     }
 
     @Override

@@ -4,7 +4,7 @@ import de.yggdrasil.core.dal.data.DataSource;
 
 public interface DALReadRequest extends DALRequest{
 
-    DataSource getDatasource();
+    Class<? extends DataSource> getDatasource();
 
     String getIdentifier();
 
