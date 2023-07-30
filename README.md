@@ -1,4 +1,4 @@
-[![Test](https://github.com/Overcraft-Team/Core/actions/workflows/Dockerbuild.yml/badge.svg?branch=prod)](https://github.com/Overcraft-Team/Core/actions/workflows/Dockerbuild.yml) [![Test](https://github.com/Overcraft-Team/Core/actions/workflows/Dockerbuild.yml/badge.svg?branch=dev)](https://github.com/Overcraft-Team/Core/actions/workflows/Dockerbuild.yml)
+[![CI](https://github.com/Overcraft-Team/Core/actions/workflows/Dockerbuild.yml/badge.svg)](https://github.com/Overcraft-Team/Core/actions/workflows/Dockerbuild.yml)
 # Yggdrasil Core
 Dies ist der Kern des Servernetzwerks und dient als Gameserver. 
 Die Architektur des monolithischen Servers ist auf viele parallel laufende Instanzen ausgelegt. 
