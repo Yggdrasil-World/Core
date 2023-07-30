@@ -21,7 +21,6 @@ public class AdapterLibrary {
              collector.collectAdapters()) {
             this.addAdapter(adapterClass);
         }
-        System.out.println(adapters.size());
     }
 
     private void addAdapter(Class<? extends Adapter> adapterClass){

@@ -1,6 +1,8 @@
 package de.yggdrasil.core;
 
 import de.yggdrasil.core.command.CommandRegisterer;
+import io.github.cdimascio.dotenv.Dotenv;
+import io.github.cdimascio.dotenv.DotenvBuilder;
 import net.minestom.server.MinecraftServer;
 import net.minestom.server.coordinate.Pos;
 import net.minestom.server.entity.Player;
@@ -14,6 +16,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.stream.Collectors;
 
 public class Main {
+
+    public final static Dotenv dotenv = new DotenvBuilder().load();
 
     public static void main(String[] args) {
         MinecraftServer minecraftServer = MinecraftServer.init();

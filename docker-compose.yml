@@ -5,7 +5,7 @@ services:
     image: "postgres"
     environment:
       POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PWD}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
   server:
     container_name: gameserver
     build:
