@@ -9,6 +9,7 @@ services:
   server:
     container_name: gameserver
     build:
+      context: ./
       dockerfile: ./Dockerfile
     ports:
       - "25565:25565"
