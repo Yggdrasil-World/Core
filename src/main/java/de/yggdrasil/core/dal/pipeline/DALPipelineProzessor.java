@@ -20,7 +20,6 @@ public class DALPipelineProzessor {
 
     private void setup(){
         this.addPipelineCollection(new DefaultPipelineCollector());
-        System.out.println(requestTypePipelineMap.size());
     }
 
     public DALResponse readData(DALReadRequest readRequest) throws MissingPipelineException {

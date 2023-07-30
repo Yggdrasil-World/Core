@@ -1,13 +1,13 @@
 package de.yggdrasil.core.dal.requests;
 
 import de.yggdrasil.core.dal.data.DataSource;
-import de.yggdrasil.core.dal.data.datasources.PostgresDB;
+import de.yggdrasil.core.dal.data.datasources.ConfigDB;
 
-public class DALConfigRequest implements DALReadRequest{
+public class DALConfigReadRequest implements DALReadRequest{
 
     private final String configKey;
 
-    public DALConfigRequest(String configKey){
+    public DALConfigReadRequest(String configKey){
         this.configKey = configKey;
     }
 
@@ -18,7 +18,7 @@ public class DALConfigRequest implements DALReadRequest{
 
     @Override
     public Class<? extends DataSource> getDatasource() {
-        return PostgresDB.class;
+        return ConfigDB.class;
     }
 
     @Override

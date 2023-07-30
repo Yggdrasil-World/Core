@@ -9,6 +9,8 @@ public interface DALWriteRequest<T> extends DALRequest{
 
     DataSource getDataSource();
 
+    String getKey();
+
     T getData();
 
 }
