@@ -4,7 +4,6 @@ import de.yggdrasil.core.dal.adapter.Adapter;
 import de.yggdrasil.core.dal.adapter.DALAdapter;
 import net.minestom.server.entity.Player;
 
-@DALAdapter(adapterForClass = Player.class)
 public class PlayerAdapter implements Adapter<Player> {
 
 
@@ -24,5 +23,10 @@ public class PlayerAdapter implements Adapter<Player> {
     @Override
     public Player createFromData(byte[] data) {
         return null;
+    }
+
+    @Override
+    public Class<Player> getClassOfAdapter() {
+        return Player.class;
     }
 }
