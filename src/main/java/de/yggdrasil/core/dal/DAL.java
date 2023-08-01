@@ -1,21 +1,21 @@
 package de.yggdrasil.core.dal;
 
-import java.util.HashMap;
+import de.yggdrasil.core.dal.pipeline.DALPipelineProzessor;
+import de.yggdrasil.core.dal.requests.DALReadRequest;
+import de.yggdrasil.core.dal.requests.DALWriteRequest;
+import de.yggdrasil.core.exceptions.dal.MissingPipelineException;
 
-public final class DAL {
+public class DAL {
 
     private final static DAL instance = new DAL();
+    private final DALPipelineProzessor pipelineProzessor = new DALPipelineProzessor();
 
-    private final HashMap<String, Byte[]> data = new HashMap<>();
-
-    private DAL (){}
-
-    public void saveData(String identifier, Byte[] data){
-
+    public void save(DALWriteRequest saveRequest) throws MissingPipelineException {
+        this.pipelineProzessor.writeData(saveRequest);
     }
 
-    public Byte[] readData(String identifier){
-        return this.data.get(identifier);
+    public DALResponse read(DALReadRequest readRequest) throws MissingPipelineException {
+        return this.pipelineProzessor.readData(readRequest);
     }
 
     public static DAL get(){
