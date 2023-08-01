@@ -1,7 +1,5 @@
 package de.yggdrasil.core.dal.data;
 
-import de.yggdrasil.core.dal.adapter.Adapter;
-import de.yggdrasil.core.dal.adapter.DALAdapter;
 import org.reflections.Reflections;
 
 import java.util.Arrays;

@@ -6,11 +6,11 @@ import java.util.Arrays;
 public class RabbitMQPackageReader {
 
     public static RabbitMQMessage readPackage(byte[] packageData){
-        byte[] header = Arrays.copyOfRange(packageData, 0, 5);
+        byte[] header = Arrays.copyOfRange(packageData, 0, 4);
         int keySize = ByteBuffer.wrap(header).getInt();
-        byte[] key = Arrays.copyOfRange(packageData, 5, keySize);
+        byte[] key = Arrays.copyOfRange(packageData, 4, 4 + keySize);
         return new RabbitMQMessage(new String(key),
-                Arrays.copyOfRange(packageData, keySize, packageData.length+1));
+                Arrays.copyOfRange(packageData, keySize + 4, packageData.length));
     }
 
 }

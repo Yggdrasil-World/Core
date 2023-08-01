@@ -1,11 +1,10 @@
 package de.yggdrasil.core.dal.requests;
 
 import de.yggdrasil.core.dal.data.DALWriteScope;
-import de.yggdrasil.core.dal.data.DataSource;
 import de.yggdrasil.core.dal.data.DatasourceLibrary;
 import de.yggdrasil.core.dal.data.datasources.ConfigDB;
 
-public class DALConfigWriteRequest implements DALWriteRequest<String>{
+public class DALConfigWriteRequest implements DALWriteRequest<ConfigDB,String>{
 
     private final String key;
     private final String value;
@@ -26,8 +25,8 @@ public class DALConfigWriteRequest implements DALWriteRequest<String>{
     }
 
     @Override
-    public DataSource getDataSource() {
-        return DatasourceLibrary.get().getDatasource(ConfigDB.class);
+    public ConfigDB getDataSource() {
+        return (ConfigDB) DatasourceLibrary.get().getDatasource(ConfigDB.class);
     }
 
     @Override
