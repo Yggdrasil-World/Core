@@ -31,6 +31,7 @@ dependencies {
     implementation 'org.reflections:reflections:0.10.2'
     implementation 'io.github.cdimascio:dotenv-java:3.0.0'
     runtimeOnly 'org.postgresql:postgresql:42.6.0'
+    implementation 'com.rabbitmq:amqp-client:5.18.0'
 }
 
 test {

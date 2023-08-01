@@ -31,5 +31,5 @@ Hierbei den vorausgewählten Namen lassen. Diesen Branch dann lokal auschecken u
 Sobald dies fertig ist einen neuen Pull-Request auf den Dev-Branch erstellen.
 
 #### Bei Fragen wendet euch an: 
-![](https://dcbadge.vercel.app/api/shield/351264499124273152) 
+![](https://dcbadge.vercel.app/api/shield/351264499124273152)
 ![](https://dcbadge.vercel.app/api/shield/620685606447611914)

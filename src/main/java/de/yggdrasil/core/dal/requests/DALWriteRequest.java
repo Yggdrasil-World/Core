@@ -3,14 +3,14 @@ package de.yggdrasil.core.dal.requests;
 import de.yggdrasil.core.dal.data.DALWriteScope;
 import de.yggdrasil.core.dal.data.DataSource;
 
-public interface DALWriteRequest<T> extends DALRequest{
+public interface DALWriteRequest<T extends DataSource,V> extends DALRequest{
 
     DALWriteScope getScope();
 
-    DataSource getDataSource();
+    T getDataSource();
 
     String getKey();
 
-    T getData();
+    V getData();
 
 }
