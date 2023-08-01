@@ -29,9 +29,16 @@ dependencies {
     implementation 'com.github.Minestom:Minestom:954e8b3915'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
     implementation 'org.reflections:reflections:0.10.2'
+
+
+    // Logging
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+
     implementation 'io.github.cdimascio:dotenv-java:3.0.0'
     runtimeOnly 'org.postgresql:postgresql:42.6.0'
     implementation 'com.rabbitmq:amqp-client:5.18.0'
+
 }
 
 test {
