@@ -25,9 +25,9 @@ public class RabbitMQ implements EventDataSource {
     private final String queueName;
     private byte[] lastMessage;
     private Channel channel;
-    private DALEventbus eventbus = new DALDefaultEventBus();
+    private final DALEventbus eventbus = new DALDefaultEventBus();
 
-    private DeliverCallback callback = (consumerTag, delivery) -> {
+    private final DeliverCallback callback = (consumerTag, delivery) -> {
         RabbitMQMessage message = RabbitMQPackageReader.readPackage(delivery.getBody());
         this.eventbus.triggerEvent(new RabbitMQDataReceivedEvent(this, message));
     };

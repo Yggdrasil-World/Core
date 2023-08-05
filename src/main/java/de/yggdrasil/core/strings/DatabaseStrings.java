@@ -4,13 +4,13 @@ public interface DatabaseStrings {
 
     String CONNECTION_STRING = "jdbc:%s://%s:%s/";
 
-    public interface Databases {
+    interface Databases {
         String POSTGRES = "postgresql";
     }
 
-    public interface DatabaseEnv {
+    interface DatabaseEnv {
 
-        public interface ConfigDB {
+        interface ConfigDB {
             String DB_SERVER = "DB_SERVER_CONFIG";
             String DB_PORT = "DB_PORT_CONFIG";
             String DB_SCHEMA = "DB_SCHEMA_CONFIG";

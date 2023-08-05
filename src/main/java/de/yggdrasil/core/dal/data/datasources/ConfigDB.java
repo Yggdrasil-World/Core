@@ -6,6 +6,7 @@ import de.yggdrasil.core.dal.data.DataSource;
 import de.yggdrasil.core.strings.DatabaseStrings;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.HashMap;
 
@@ -70,8 +71,8 @@ public class ConfigDB implements DataSource {
             ResultSet resultSet = this.preparedStatements.get(StatementQuerries.SELECT_VALUE).executeQuery();
             resultSet.next();
             String result = resultSet.getString("value");
-            return result.getBytes("UTF-8");
-        } catch (SQLException | UnsupportedEncodingException e) {
+            return result.getBytes(StandardCharsets.UTF_8);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return new byte[0];
@@ -82,9 +83,9 @@ public class ConfigDB implements DataSource {
         try {
             PreparedStatement statement = this.preparedStatements.get(StatementQuerries.INSERT_VALUE);
             statement.setString(1, key);
-            statement.setString(2, new String(value, "UTF-8"));
+            statement.setString(2, new String(value, StandardCharsets.UTF_8));
             statement.execute();
-        } catch (SQLException | UnsupportedEncodingException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

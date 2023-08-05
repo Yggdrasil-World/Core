@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 public class RabbitMQPackage implements Package {
 
     private final byte[] header;
-    private byte[] data;
+    private final byte[] data;
 
     public RabbitMQPackage(RabbitMQMessage message){
         header = ByteBuffer.allocate(4).putInt(message.key().length()).array();

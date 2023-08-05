@@ -17,17 +17,17 @@ public class Guild {
     /**
      * The unique id of a guild so it can be identified
      */
-    private UUID uuid;
+    private final UUID uuid;
 
     /**
      * The displayed name of the guild
      */
-    private String name;
+    private final String name;
 
     /**
      * The owner of the guild
      */
-    private GuildMember owner; // TODO: Change to player interface
+    private final GuildMember owner; // TODO: Change to player interface
 
     /**
      * All the guild members

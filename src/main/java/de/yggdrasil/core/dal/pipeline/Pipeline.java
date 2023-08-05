@@ -10,8 +10,8 @@ public interface Pipeline {
 
     Class<DALRequest>[] applyForRequestTypes();
 
-    public void writeBytes(DALWriteRequest writeRequest);
+    void writeBytes(DALWriteRequest writeRequest);
 
-    public DALResponse readBytes(DALReadRequest readRequest);
+    DALResponse readBytes(DALReadRequest readRequest);
 
 }

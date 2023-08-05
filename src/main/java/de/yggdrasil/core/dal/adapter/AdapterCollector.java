@@ -4,6 +4,6 @@ import java.util.Set;
 
 public interface AdapterCollector {
 
-    public Set<Class<? extends Adapter>> collectAdapters();
+    Set<Class<? extends Adapter>> collectAdapters();
 
 }
