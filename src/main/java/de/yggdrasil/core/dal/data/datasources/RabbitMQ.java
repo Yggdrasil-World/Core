@@ -35,8 +35,8 @@ public class RabbitMQ implements EventDataSource {
     public RabbitMQ(String queueName){
         this.queueName = queueName;
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost(Main.dotenv.get("RABBIT_MQ_HOST"));
-        connectionFactory.setPort(Integer.parseInt(Main.dotenv.get("RABBIT_MQ_PORT")));
+        connectionFactory.setHost(System.getProperty("RABBIT_MQ_HOST"));
+        connectionFactory.setPort(Integer.parseInt(System.getProperty("RABBIT_MQ_PORT")));
         try {
             Connection connection = connectionFactory.newConnection();
             channel = connection.createChannel();

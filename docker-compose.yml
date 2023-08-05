@@ -14,8 +14,10 @@ services:
     ports:
       - "25565:25565"
     depends_on:
-      - postgres
-      - rabbitmq
+      postgres:
+        condition: service_started
+      rabbitmq:
+        condition: service_started
   rabbitmq:
     container_name: rabbitmq
     image: "rabbitmq"

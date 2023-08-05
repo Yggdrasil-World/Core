@@ -5,7 +5,6 @@ import de.yggdrasil.core.dal.data.DALWriteScope;
 import de.yggdrasil.core.dal.data.DataSource;
 import de.yggdrasil.core.strings.DatabaseStrings;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import java.util.HashMap;
@@ -26,10 +25,10 @@ public class ConfigDB implements DataSource {
     }
 
     private Connection setupConnection() throws SQLException {
-        var DB_SERVER = Main.dotenv.get(DatabaseStrings.DatabaseEnv.ConfigDB.DB_SERVER);
-        var DB_PORT = Main.dotenv.get(DatabaseStrings.DatabaseEnv.ConfigDB.DB_PORT);
-        var DB_USER = Main.dotenv.get(DatabaseStrings.DatabaseEnv.ConfigDB.DB_USER);
-        var DB_PASSWORD = Main.dotenv.get(DatabaseStrings.DatabaseEnv.ConfigDB.DB_PASSWORD);
+        var DB_SERVER = System.getProperty(DatabaseStrings.DatabaseEnv.ConfigDB.DB_SERVER);
+        var DB_PORT = System.getProperty(DatabaseStrings.DatabaseEnv.ConfigDB.DB_PORT);
+        var DB_USER = System.getProperty(DatabaseStrings.DatabaseEnv.ConfigDB.DB_USER);
+        var DB_PASSWORD = System.getProperty(DatabaseStrings.DatabaseEnv.ConfigDB.DB_PASSWORD);
         return DriverManager.getConnection(DatabaseStrings.CONNECTION_STRING
                 .formatted(DatabaseStrings.Databases.POSTGRES, DB_SERVER, DB_PORT), DB_USER, DB_PASSWORD);
     }
@@ -92,7 +91,7 @@ public class ConfigDB implements DataSource {
 
     private interface StatementQuerries {
 
-        String schema = Main.dotenv.get(DatabaseStrings.DatabaseEnv.ConfigDB.DB_SCHEMA);
+        String schema = System.getProperty(DatabaseStrings.DatabaseEnv.ConfigDB.DB_SCHEMA);
         String CREATE_SCHEMA = "CREATE SCHEMA IF NOT EXISTS %s".formatted(schema);
         String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS %s.config_values (key TEXT PRIMARY KEY, value TEXT)".formatted(schema);
         String SELECT_VALUE = "SELECT value FROM %s.config_values WHERE key = ?".formatted(schema);
