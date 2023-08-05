@@ -15,13 +15,9 @@ import de.yggdrasil.core.dal.data.event.events.RabbitMQDataReceivedEvent;
 import de.yggdrasil.core.dal.data.network.rabbitmq.RabbitMQMessage;
 import de.yggdrasil.core.dal.data.network.rabbitmq.RabbitMQPackage;
 import de.yggdrasil.core.dal.data.network.rabbitmq.RabbitMQPackageReader;
-import net.minestom.server.utils.ArrayUtils;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
-import java.util.stream.Stream;
 
 @HideFromDefaultCollector
 public class RabbitMQ implements EventDataSource {

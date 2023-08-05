@@ -1,6 +1,5 @@
 package de.yggdrasil.core.dal.pipeline;
 
-import de.yggdrasil.core.dal.adapter.Adapter;
 import org.reflections.Reflections;
 
 import java.util.Arrays;

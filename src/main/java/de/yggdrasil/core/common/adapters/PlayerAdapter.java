@@ -1,7 +1,6 @@
 package de.yggdrasil.core.common.adapters;
 
 import de.yggdrasil.core.dal.adapter.Adapter;
-import de.yggdrasil.core.dal.adapter.DALAdapter;
 import net.minestom.server.entity.Player;
 
 public class PlayerAdapter implements Adapter<Player> {

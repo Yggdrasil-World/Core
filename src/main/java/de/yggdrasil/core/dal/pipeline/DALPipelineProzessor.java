@@ -1,6 +1,6 @@
 package de.yggdrasil.core.dal.pipeline;
 
-import de.yggdrasil.core.dal.DALResponse;
+import de.yggdrasil.core.dal.responses.DALResponse;
 import de.yggdrasil.core.dal.adapter.AdapterLibrary;
 import de.yggdrasil.core.dal.requests.DALReadRequest;
 import de.yggdrasil.core.dal.requests.DALRequest;

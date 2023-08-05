@@ -1,9 +1,6 @@
 package de.yggdrasil.core.social.guild;
 
 
-import de.yggdrasil.core.character.Character;
-import net.minestom.server.entity.Player;
-
 import java.util.UUID;
 
 // TODO: Outsource into an interface

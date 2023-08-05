@@ -3,6 +3,7 @@ package de.yggdrasil.core.dal;
 import de.yggdrasil.core.dal.pipeline.DALPipelineProzessor;
 import de.yggdrasil.core.dal.requests.DALReadRequest;
 import de.yggdrasil.core.dal.requests.DALWriteRequest;
+import de.yggdrasil.core.dal.responses.DALResponse;
 import de.yggdrasil.core.exceptions.dal.MissingPipelineException;
 
 public class DAL {
