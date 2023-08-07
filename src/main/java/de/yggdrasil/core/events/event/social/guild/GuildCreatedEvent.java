@@ -1,4 +1,4 @@
-package de.yggdrasil.core.events.social.guild;
+package de.yggdrasil.core.events.event.social.guild;
 
 import de.yggdrasil.core.social.guild.Guild;
 
