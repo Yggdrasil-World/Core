@@ -15,13 +15,9 @@ import de.yggdrasil.core.dal.data.event.events.RabbitMQDataReceivedEvent;
 import de.yggdrasil.core.dal.data.network.rabbitmq.RabbitMQMessage;
 import de.yggdrasil.core.dal.data.network.rabbitmq.RabbitMQPackage;
 import de.yggdrasil.core.dal.data.network.rabbitmq.RabbitMQPackageReader;
-import net.minestom.server.utils.ArrayUtils;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.concurrent.TimeoutException;
-import java.util.stream.Stream;
 
 @HideFromDefaultCollector
 public class RabbitMQ implements EventDataSource {
@@ -29,9 +25,9 @@ public class RabbitMQ implements EventDataSource {
     private final String queueName;
     private byte[] lastMessage;
     private Channel channel;
-    private DALEventbus eventbus = new DALDefaultEventBus();
+    private final DALEventbus eventbus = new DALDefaultEventBus();
 
-    private DeliverCallback callback = (consumerTag, delivery) -> {
+    private final DeliverCallback callback = (consumerTag, delivery) -> {
         RabbitMQMessage message = RabbitMQPackageReader.readPackage(delivery.getBody());
         this.eventbus.triggerEvent(new RabbitMQDataReceivedEvent(this, message));
     };
@@ -39,8 +35,8 @@ public class RabbitMQ implements EventDataSource {
     public RabbitMQ(String queueName){
         this.queueName = queueName;
         ConnectionFactory connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost(Main.dotenv.get("RABBIT_MQ_HOST"));
-        connectionFactory.setPort(Integer.parseInt(Main.dotenv.get("RABBIT_MQ_PORT")));
+        connectionFactory.setHost(System.getProperty("RABBIT_MQ_HOST"));
+        connectionFactory.setPort(Integer.parseInt(System.getProperty("RABBIT_MQ_PORT")));
         try {
             Connection connection = connectionFactory.newConnection();
             channel = connection.createChannel();

@@ -1,6 +1,6 @@
 package de.yggdrasil.core.dal.pipeline;
 
-import de.yggdrasil.core.dal.DALResponse;
+import de.yggdrasil.core.dal.responses.DALResponse;
 import de.yggdrasil.core.dal.requests.DALReadRequest;
 import de.yggdrasil.core.dal.requests.DALRequest;
 import de.yggdrasil.core.dal.requests.DALWriteRequest;
@@ -10,8 +10,8 @@ public interface Pipeline {
 
     Class<DALRequest>[] applyForRequestTypes();
 
-    public void writeBytes(DALWriteRequest writeRequest);
+    void writeBytes(DALWriteRequest writeRequest);
 
-    public DALResponse readBytes(DALReadRequest readRequest);
+    DALResponse readBytes(DALReadRequest readRequest);
 
 }

@@ -1,6 +1,5 @@
 package de.yggdrasil.core.events.social.guild;
 
-import de.yggdrasil.core.events.social.guild.member.GuildMemberEvent;
 import de.yggdrasil.core.social.guild.Guild;
 import de.yggdrasil.core.social.guild.GuildMember;
 

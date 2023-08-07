@@ -4,6 +4,6 @@ import java.util.Set;
 
 public interface DatasourceCollector {
 
-    public Set<Class<? extends DataSource>> collectDatasources();
+    Set<Class<? extends DataSource>> collectDatasources();
 
 }

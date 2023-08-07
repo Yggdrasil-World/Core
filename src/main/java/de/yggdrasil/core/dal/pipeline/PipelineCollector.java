@@ -4,6 +4,6 @@ import java.util.Set;
 
 public interface PipelineCollector {
 
-    public Set<Class<? extends Pipeline>> collectPipelines();
+    Set<Class<? extends Pipeline>> collectPipelines();
 
 }

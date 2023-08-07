@@ -11,7 +11,7 @@ import java.util.UUID;
 
 public class GuildManager {
 
-    private Map<UUID, Guild> map;
+    private final Map<UUID, Guild> map;
 
     public GuildManager() {
         this.map = new HashMap<>();

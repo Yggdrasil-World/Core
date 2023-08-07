@@ -1,9 +1,6 @@
 package de.yggdrasil.core.social.guild;
 
 
-import de.yggdrasil.core.character.Character;
-import net.minestom.server.entity.Player;
-
 import java.util.UUID;
 
 // TODO: Outsource into an interface
@@ -20,17 +17,17 @@ public class Guild {
     /**
      * The unique id of a guild so it can be identified
      */
-    private UUID uuid;
+    private final UUID uuid;
 
     /**
      * The displayed name of the guild
      */
-    private String name;
+    private final String name;
 
     /**
      * The owner of the guild
      */
-    private GuildMember owner; // TODO: Change to player interface
+    private final GuildMember owner; // TODO: Change to player interface
 
     /**
      * All the guild members

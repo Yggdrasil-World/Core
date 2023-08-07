@@ -1,7 +1,5 @@
 package de.yggdrasil.core.dal.responses;
 
-import de.yggdrasil.core.dal.DALResponse;
-
 public class DALConfigResponse implements DALResponse<String> {
 
     private final String data;

@@ -1,4 +1,4 @@
-package de.yggdrasil.core.dal;
+package de.yggdrasil.core.dal.responses;
 
 public interface DALResponse<T> {
 

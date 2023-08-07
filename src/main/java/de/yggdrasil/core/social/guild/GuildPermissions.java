@@ -1,7 +1,6 @@
 package de.yggdrasil.core.social.guild;
 
 import net.minestom.server.permission.Permission;
-import org.jglrxavpok.hephaistos.nbt.NBTCompound;
 
 
 public interface GuildPermissions {

@@ -1,17 +1,21 @@
 package de.yggdrasil.core.dal.pipeline;
 
-import de.yggdrasil.core.dal.DALResponse;
+import de.yggdrasil.core.dal.responses.DALResponse;
 import de.yggdrasil.core.dal.adapter.AdapterLibrary;
 import de.yggdrasil.core.dal.requests.DALReadRequest;
 import de.yggdrasil.core.dal.requests.DALRequest;
 import de.yggdrasil.core.dal.requests.DALWriteRequest;
 import de.yggdrasil.core.exceptions.dal.MissingPipelineException;
+import de.yggdrasil.core.strings.logging.DALPipelineProzessorLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 
 public class DALPipelineProzessor {
 
     private final AdapterLibrary library = new AdapterLibrary();
+    private Logger logger = LogManager.getLogger(DALPipelineProzessor.class);
     private final HashMap<Class<DALRequest>, Pipeline> requestTypePipelineMap = new HashMap<>();
 
     {
@@ -39,10 +43,13 @@ public class DALPipelineProzessor {
     }
 
     public void addPipelineCollection(PipelineCollector collector){
+        int count = 0;
         for (Class<? extends Pipeline> pipelineClass:
                 collector.collectPipelines()) {
             this.addPipeline(pipelineClass);
+            count++;
         }
+        logger.info(DALPipelineProzessorLogger.ADD_PIPELINE_COLLECTION.formatted(count, requestTypePipelineMap.size()));
     }
 
     private void addPipeline(Class<? extends Pipeline> pipelineClass){
