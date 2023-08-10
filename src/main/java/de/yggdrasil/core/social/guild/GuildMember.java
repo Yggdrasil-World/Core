@@ -4,10 +4,9 @@ import de.yggdrasil.core.player.character.Character;
 
 public interface GuildMember {
     Character character();
-    GuildRank rank();
 
     // TODO: new admin member
-    static GuildMember NewMember(Character character, GuildRank rank) {
-        return new GuildMemberImpl(character, rank);
+    static GuildMember NewMember(Character character) {
+        return new GuildMemberImpl(character);
     }
 }

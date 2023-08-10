@@ -17,7 +17,7 @@ public interface GuildManager {
      * @return Null if guild name already exists, else returns the created Guild
      */
     default @Nullable Guild createGuild(String name, Character creator) throws StringRegexException, NameNotAvailableException {
-        return createGuild(name, GuildMember.NewMember(creator, GuildRank.Empty()));
+        return createGuild(name, GuildMember.NewMember(creator));
     }
 
     /**
