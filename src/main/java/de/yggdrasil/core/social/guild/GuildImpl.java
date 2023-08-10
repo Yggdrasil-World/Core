@@ -1,10 +1,9 @@
 package de.yggdrasil.core.social.guild;
 
-import de.yggdrasil.core.utils.NBTContainer;
-
 import java.util.UUID;
 
 public class GuildImpl implements Guild {
+
 
     /**
      * The unique id of a guild so it can be identified
@@ -19,12 +18,12 @@ public class GuildImpl implements Guild {
     /**
      * The owner of the guild
      */
-    private final GuildMember owner; // TODO: Change to player interface
+    private final GuildMember owner;
 
     /**
      * All the guild members
      */
-    private GuildMember[] members; // TODO: Change to player interface
+    private GuildMember[] members;
 
     /**
      * Available ranks which can be allocated to guild members
