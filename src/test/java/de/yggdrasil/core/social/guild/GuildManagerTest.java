@@ -8,11 +8,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class GuildManagerTest {
-    private GuildManager testManager;
+    private GuildManagerImpl testManager;
     private Character testCharacter;
     @BeforeEach
     void setUp() {
-        testManager = new GuildManager();
+        testManager = new GuildManagerImpl();
         testCharacter = new Character() {
         };
     }
