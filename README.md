@@ -8,15 +8,27 @@ Im Betrieb sollen die einzelnen instanzen automatisch ausgerollt und konfigurier
 1. Docker Desktop [herunterladen](https://www.docker.com/products/docker-desktop/) und installieren.
 2. Das Repository klonen: ```https://github.com/Overcraft-Team/Core.git```
 3. Das Projekt in IntelliJ öffnen.
+4. Den Befehl ```git submodule update --init --recursive``` ausführen
 4. Das Gradle Projekt laden lassen.
 5. In der Konsole den Befehl: ```docker-compose up -d --build``` eingeben
 
-Anschließend sollten bei Docker Desktop zwei laufende Container zu sehen sein.
+Anschließend sollten bei Docker Desktop drei laufende Container zu sehen sein:
+- database
+- rabbitmq
+- gameserver
 
 ## Hinweise für die Entwicklung
 Um Codeänderungen testen zu können muss entweder ...
 - ... das Projekt immer über ```docker-compose up -d --build``` gebaut werden.
 - ... eine lokale Postgres Datenbank aufgesetzt sein.
+
+ansonsten können die tests des DAL nicht durchlaufen und der Build bricht ab.
+
+## Submodules
+Da das DAL System in verschiedenen Gameserver-Systemen zum Einsatz kommen soll, ist dieses als Git-Submodule eingebunden.
+ Das bedeutet, dass alle Änderungen, die im DAL Module gemacht werden, extra committed und gepusht werden müssen.
+ Außerdem ist es erforderlich das Submodule zu updaten, wenn Änderungen auf dem Repository vorgenommen werden.
+Dies ist mit dem Befehl: ```git submodule update``` möglich
 
 ## Contributing
 Das Projekt besteht aus drei Branch-Stufen:
