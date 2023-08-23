@@ -3,7 +3,7 @@ plugins {
     id("io.freefair.lombok") version "8.1.0"
 }
 
-group 'de.overcraft.core'
+group 'de.yggdrasil.core'
 version '1.0-SNAPSHOT'
 
 jar {
