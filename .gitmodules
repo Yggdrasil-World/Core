@@ -1,3 +1,6 @@
 [submodule "dal"]
 	path = dal
 	url = https://github.com/Overcraft-Team/DAL.git
+[submodule "localisation"]
+	path = localisation
+	url = https://github.com/Yggdrasil-World/Localisation-Module.git
