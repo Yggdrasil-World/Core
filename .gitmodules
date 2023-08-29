@@ -1,3 +1,6 @@
 [submodule "dal"]
 	path = dal
 	url = https://github.com/Overcraft-Team/DAL.git
+[submodule "placeholder"]
+	path = placeholder
+	url = https://github.com/Yggdrasil-World/Placeholder-Module.git
