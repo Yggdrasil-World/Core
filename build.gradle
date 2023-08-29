@@ -3,49 +3,28 @@ plugins {
     id("io.freefair.lombok") version "8.1.0"
 }
 
-group 'de.yggdrasil.core'
+group 'de.yggdrasil.core.localisation'
 version '1.0-SNAPSHOT'
-
-jar {
-
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-    manifest {
-        attributes 'Main-Class': 'de.yggdrasil.core.Main'
-    }
-
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-}
 
 repositories {
     mavenCentral()
     maven{ url 'https://jitpack.io' }
-    maven{ url 'https://artifactory.bytemc.de/artifactory/bytemc-public' }
 }
 
 dependencies {
-    implementation 'com.github.Minestom:Minestom:c5047b8037'
     implementation 'org.reflections:reflections:0.10.2'
-    implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+    implementation 'com.github.Minestom:Minestom:4f7ff5b474'
 
     // Logging
     implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
     implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
-    implementation project(path: ':dal')
 
-    // Datensysteme
-    runtimeOnly 'org.postgresql:postgresql:42.6.0'
-    implementation 'com.rabbitmq:amqp-client:5.18.0'
-    implementation 'net.bytemc:evelon:1.0.1'
+    //DAL
+    implementation project(path: ':dal')
+    implementation project(path: ':placeholder')
 
     // Tests only
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
-    testImplementation 'org.mockito:mockito-core:5.4.0'
-    testImplementation 'org.testcontainers:testcontainers:1.18.3'
-    testImplementation 'org.testcontainers:postgresql:1.18.3'
 }
 
 test {
