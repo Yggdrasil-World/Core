@@ -1,3 +1,4 @@
 rootProject.name = 'OvercraftCore'
 include 'dal'
+include 'placeholder'
 include 'localisation'
