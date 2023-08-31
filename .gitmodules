@@ -4,3 +4,6 @@
 [submodule "placeholder"]
 	path = placeholder
 	url = https://github.com/Yggdrasil-World/Placeholder-Module.git
+[submodule "localisation"]
+	path = localisation
+	url = https://github.com/Yggdrasil-World/Localisation-Module.git

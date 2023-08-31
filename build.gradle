@@ -33,6 +33,7 @@ dependencies {
     //Git Modules
     implementation project(path: ':dal')
     implementation project(path: ':placeholder')
+    implementation project(path: ':localisation')
 
     // Logging
     implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
