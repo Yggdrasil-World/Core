@@ -4,10 +4,7 @@ import de.yggdrasil.core.command.CommandRegisterer;
 import de.yggdrasil.core.events.listener.PlayerLoginListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.minestom.server.MinecraftServer;
-import net.minestom.server.coordinate.Pos;
-import net.minestom.server.entity.Player;
 import net.minestom.server.event.GlobalEventHandler;
-import net.minestom.server.event.player.PlayerLoginEvent;
 import net.minestom.server.instance.InstanceContainer;
 import net.minestom.server.instance.InstanceManager;
 import net.minestom.server.instance.block.Block;
@@ -27,7 +24,7 @@ public class Main {
         instanceContainer.setGenerator(unit ->
                 unit.modifier().fillHeight(0, 40, Block.GRASS_BLOCK));
         // Add an event callback to specify the spawning instance (and the spawn position)
-        registerListeners();
+        registerListeners(instanceContainer);
         // Start the server on port 25565
         minecraftServer.start("0.0.0.0", 25565);
         registerCommands();
@@ -44,9 +41,9 @@ public class Main {
         }).collect(Collectors.toUnmodifiableSet()));
     }
 
-    private static void registerListeners(){
+    private static void registerListeners(InstanceContainer instanceContainer){
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
-        globalEventHandler.addListener(new PlayerLoginListener());
+        globalEventHandler.addListener(new PlayerLoginListener(instanceContainer));
     }
 
 }

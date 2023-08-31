@@ -30,8 +30,8 @@ public class PlayerLoginListener implements EventListener<PlayerLoginEvent> {
         event.getPlayer().setRespawnPoint(new Pos(0, 42, 0));
 
         ResourcePack resourcePack = ResourcePack.forced(
-                (String) DAL.get().read(new DALConfigReadRequest(ConfigKeys.RESOURCE_PACK_URL)).getData(),
-                (String) DAL.get().read(new DALConfigReadRequest(ConfigKeys.RESOURCE_PACK_HASH)).getData());
+                (String) DAL.get().read(new DALConfigReadRequest(ConfigKeys.RESOURCE_PACK_URL)).getData(), //URL
+                (String) DAL.get().read(new DALConfigReadRequest(ConfigKeys.RESOURCE_PACK_HASH)).getData()); //Hash
         event.getPlayer().setResourcePack(resourcePack);
         return Result.SUCCESS;
     }
