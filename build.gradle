@@ -3,7 +3,7 @@ plugins {
     id("io.freefair.lombok") version "8.1.0"
 }
 
-group 'de.overcraft.core'
+group 'de.yggdrasil.core'
 version '1.0-SNAPSHOT'
 
 jar {
@@ -26,9 +26,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.Minestom:Minestom:c5047b8037'
+    implementation 'com.github.Minestom:Minestom:4f7ff5b474'
     implementation 'org.reflections:reflections:0.10.2'
     implementation 'io.github.cdimascio:dotenv-java:3.0.0'
+
+    //Git Modules
+    implementation project(path: ':dal')
+    implementation project(path: ':placeholder')
+    implementation project(path: ':localisation')
 
     // Logging
     implementation 'org.apache.logging.log4j:log4j-api:2.20.0'

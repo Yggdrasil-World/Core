@@ -1,14 +1,11 @@
 package de.yggdrasil.core.social.guild;
 
-import de.yggdrasil.core.character.Character;
 import de.yggdrasil.core.exceptions.StringRegexException;
 import de.yggdrasil.core.exceptions.guild.NameNotAvailableException;
+import de.yggdrasil.core.player.character.Character;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GuildManagerTest {
     private GuildManager testManager;

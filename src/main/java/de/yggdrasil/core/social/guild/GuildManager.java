@@ -1,8 +1,8 @@
 package de.yggdrasil.core.social.guild;
 
-import de.yggdrasil.core.character.Character;
 import de.yggdrasil.core.exceptions.StringRegexException;
 import de.yggdrasil.core.exceptions.guild.NameNotAvailableException;
+import de.yggdrasil.core.player.character.Character;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
