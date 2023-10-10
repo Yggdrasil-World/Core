@@ -15,7 +15,10 @@ import java.util.stream.Collectors;
 public class Main {
 
     public static void main(String[] args) {
+        //Load Environmental Variables and load them into the system properties
+        // so they can be read everywhere in the project
         Dotenv.configure().systemProperties().load();
+        //Create Minecraft Server instance
         MinecraftServer minecraftServer = MinecraftServer.init();
         InstanceManager instanceManager = MinecraftServer.getInstanceManager();
         // Create the instance
@@ -25,9 +28,10 @@ public class Main {
                 unit.modifier().fillHeight(0, 40, Block.GRASS_BLOCK));
         // Add an event callback to specify the spawning instance (and the spawn position)
         registerListeners(instanceContainer);
+        // Register all available Commands
+        registerCommands();
         // Start the server on port 25565
         minecraftServer.start("0.0.0.0", 25565);
-        registerCommands();
     }
 
     private static void registerCommands() {
@@ -43,6 +47,7 @@ public class Main {
 
     private static void registerListeners(InstanceContainer instanceContainer){
         GlobalEventHandler globalEventHandler = MinecraftServer.getGlobalEventHandler();
+        //Login Event
         globalEventHandler.addListener(new PlayerLoginListener(instanceContainer));
     }
 

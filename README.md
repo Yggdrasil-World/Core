@@ -2,11 +2,12 @@
 # Yggdrasil Core
 Dies ist der Kern des Servernetzwerks und dient als Gameserver. 
 Die Architektur des monolithischen Servers ist auf viele parallel laufende Instanzen ausgelegt. 
-Im Betrieb sollen die einzelnen instanzen automatisch ausgerollt und konfiguriert werden.
+Im Betrieb sollen die einzelnen instanzen automatisch ausgerollt und konfiguriert werden. 
+Die jeweils für die verwaltete Spielwelt geltenden spezifischen Regeln werden jeweils in einem eigenen, auf diesem aufbauenden Projekt implementiert.
 
 ## Lokales Setup
 1. Docker Desktop [herunterladen](https://www.docker.com/products/docker-desktop/) und installieren.
-2. Das Repository klonen: ```https://github.com/Overcraft-Team/Core.git```
+2. Das Repository klonen: ```git clone https://github.com/Overcraft-Team/Core.git```
 3. Das Projekt in IntelliJ öffnen.
 4. Den Befehl ```git submodule update --init --recursive``` ausführen
 4. Das Gradle Projekt laden lassen.

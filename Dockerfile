@@ -1,4 +1,4 @@
-# using multistage docker build
+# multistage docker build
 # ref: https://docs.docker.com/develop/develop-images/multistage-build/
 
 # temp container to build using gradle
@@ -16,7 +16,7 @@ RUN gradle build || return 0
 COPY . .
 RUN gradle clean build
 
-# actual container
+# actual container that runs the server
 FROM openjdk:20
 ENV ARTIFACT_NAME=OvercraftCore-1.0-SNAPSHOT.jar
 ENV APP_HOME=/usr/app/

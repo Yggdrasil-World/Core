@@ -21,12 +21,14 @@ jar {
 
 repositories {
     mavenCentral()
-    maven{ url 'https://jitpack.io' }
+    //Bytemc
     maven{ url 'https://artifactory.bytemc.de/artifactory/bytemc-public' }
+    //Minestom
+    maven{ url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation 'com.github.Minestom:Minestom:4f7ff5b474'
+    implementation 'com.github.Minestom:Minestom:-SNAPSHOT'
     implementation 'org.reflections:reflections:0.10.2'
     implementation 'io.github.cdimascio:dotenv-java:3.0.0'
 

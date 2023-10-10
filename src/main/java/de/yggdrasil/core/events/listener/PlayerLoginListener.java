@@ -15,6 +15,7 @@ public class PlayerLoginListener implements EventListener<PlayerLoginEvent> {
     private final InstanceContainer instanceContainer;
 
     public PlayerLoginListener(InstanceContainer instanceContainer){
+        //the instance is needed for setting player spawn in specific world at specific position
         this.instanceContainer = instanceContainer;
     }
 
@@ -25,14 +26,15 @@ public class PlayerLoginListener implements EventListener<PlayerLoginEvent> {
 
     @Override
     public @NotNull Result run(@NotNull PlayerLoginEvent event) {
-
+        //manage player spawning
         event.setSpawningInstance(this.instanceContainer);
         event.getPlayer().setRespawnPoint(new Pos(0, 42, 0));
-
+        //Force player to use this resourcepack
         ResourcePack resourcePack = ResourcePack.forced(
                 (String) DAL.get().read(new DALConfigReadRequest(ConfigKeys.RESOURCE_PACK_URL)).getData(), //URL
                 (String) DAL.get().read(new DALConfigReadRequest(ConfigKeys.RESOURCE_PACK_HASH)).getData()); //Hash
         event.getPlayer().setResourcePack(resourcePack);
+        //Event finished
         return Result.SUCCESS;
     }
 
